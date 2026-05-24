@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bruno Pessanha – Senior Backend Engineer & Team Lead based in Köln, Germany.">
+  <title>Bruno Pessanha – Senior Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #ffffff;
+      --bg-alt:       #F8FAFC;
+      --border:       #E2E8F0;
+      --text:         #1E293B;
+      --text-muted:   #64748B;
+      --accent:       #2563EB;
+      --accent-hover: #1D4ED8;
+      --accent-light: #EFF6FF;
+      --nav-h:        64px;
+      --max-w:        960px;
+      --radius:       10px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── Layout helpers ─── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 48px;
+    }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .icon { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 96px 0 80px;
+      background: var(--bg);
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+
+    .pill {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── About ─── */
+    #about { padding: 80px 0; background: var(--bg-alt); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 1.0625rem;
+      margin-bottom: 16px;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-block { display: flex; flex-direction: column; gap: 3px; }
+
+    .sidebar-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .sidebar-value {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .sidebar-value small {
+      display: block;
+      font-weight: 400;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      padding: 2px 0;
+    }
+
+    .lang-row span:last-child { color: var(--text-muted); }
+
+    /* ─── Experience ─── */
+    #experience { padding: 80px 0; background: var(--bg); }
+
+    .timeline { position: relative; padding-left: 28px; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .tl-item { position: relative; padding-bottom: 40px; }
+    .tl-item:last-child { padding-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: -34px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+
+    .tl-item:first-child .tl-dot {
+      box-shadow: 0 0 0 4px var(--accent-light);
+    }
+
+    .tl-role {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .tl-company {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    .tl-meta {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+
+    .tl-bullets li {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .tl-bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ─── Skills ─── */
+    #skills { padding: 80px 0; background: var(--bg-alt); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 36px;
+    }
+
+    .skill-group h3 {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: 5px 13px;
+      border-radius: 7px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ─── Projects ─── */
+    #projects { padding: 80px 0; background: var(--bg); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-alt);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .project-name {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .project-company {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .project-tags .tag { font-size: 0.75rem; padding: 3px 10px; }
+
+    .minor-title {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 48px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .minor-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── Highlights ─── */
+    #highlights { padding: 80px 0; background: var(--bg-alt); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ─── Contact ─── */
+    #contact { padding: 80px 0; background: var(--bg); }
+
+    .contact-inner {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .contact-inner h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .contact-inner p {
+      color: var(--text-muted);
+      font-size: 1.0625rem;
+      margin-bottom: 36px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* ─── Profile photo ─── */
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .hero-content { flex: 1; min-width: 0; }
+
+    .profile-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 10%;
+      object-fit: cover;
+      object-position: center;
+      border: 3px solid var(--border);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* ─── Dark mode ─── */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0F172A;
+        --bg-alt:       #1E293B;
+        --border:       #334155;
+        --text:         #F1F5F9;
+        --text-muted:   #94A3B8;
+        --accent:       #60A5FA;
+        --accent-hover: #93C5FD;
+        --accent-light: #1E3A5F;
+      }
+
+      nav { background: rgba(15, 23, 42, 0.92); }
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero { padding: 72px 0 60px; }
+      .hero h1 { font-size: 2rem; }
+      .hero-inner { flex-direction: column-reverse; gap: 32px; }
+      .profile-photo { width: 120px; height: 120px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .section-title { margin-bottom: 32px; }
+      #about, #experience, #skills, #projects, #highlights, #contact { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Bruno Pessanha</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#highlights">Highlights</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Köln, Germany</p>
+          <h1>Bruno Pessanha</h1>
+          <p class="hero-subtitle">
+            Senior Backend Engineer &amp; Team Lead building scalable,
+            Cloud-Native Systems for IoT and enterprise platforms.
+          </p>
+          <div class="hero-tags">
+            <span class="pill">Kotlin</span>
+            <span class="pill">Spring Boot</span>
+            <span class="pill">Kubernetes</span>
+            <span class="pill">Azure</span>
+            <span class="pill">AWS</span>
+            <span class="pill">Team Leadership</span>
+          </div>
+          <div class="hero-cta">
+            <a href="#experience" class="btn btn-primary">View Experience</a>
+            <a href="https://github.com/brunopessanha" target="_blank" rel="noopener" class="btn btn-outline">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/brunopessanha" target="_blank" rel="noopener" class="btn btn-outline">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="mailto:brunopessanha@pm.me" class="btn btn-outline">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,12 2,6"/>
+              </svg>
+              Email
+            </a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="Bruno.jpg" alt="Bruno Pessanha" class="profile-photo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">About</p>
+      <h2 class="section-title">Who I am</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Experienced Software Engineer and former Team Lead with comprehensive proficiency in
+            Software Development, Software Lifecycle Management, and Cloud Infrastructure.
+          </p>
+          <p>
+            I've led high-performing engineering teams and architected scalable, modular Backend
+            systems using modern technologies like Kotlin, Spring Boot, Kubernetes, and Terraform —
+            always with a focus on customer-centric, efficient solutions and agile practices.
+          </p>
+          <p>
+            With roots in Brazil and professional experience across South America, the UK, and Germany,
+            I bring a global perspective and a strong track record in cross-functional collaboration,
+            from early-stage MVPs to mature cloud-native services.
+          </p>
+        </div>
+        <div class="about-sidebar">
+          <div class="sidebar-block">
+            <span class="sidebar-label">📍 Location</span>
+            <span class="sidebar-value">Köln, Germany</span>
+          </div>
+          <div class="sidebar-block">
+            <span class="sidebar-label">👨🏽‍🎓 Education</span>
+            <span class="sidebar-value">
+              M.Sc. Applied Computer Science
+              <small>RPTU Kaiserslautern</small>
+            </span>
+            <span class="sidebar-value" style="margin-top:4px">
+              B.Sc. Computer Science
+              <small>Universidade de Brasília</small>
+            </span>
+          </div>
+          <div class="sidebar-block">
+            <span class="sidebar-label">📜 Certifications</span>
+            <span class="sidebar-value" style="font-size:0.875rem;font-weight:400;color:var(--text-muted)">
+              PSM I &nbsp;·&nbsp; CAE (Cambridge) &nbsp;·&nbsp; TOEFL iBT 113/120
+            </span>
+          </div>
+          <div class="sidebar-block">
+            <span class="sidebar-label">Languages</span>
+            <div>
+              <div class="lang-row"><span>🇧🇷 Portuguese</span><span>Native</span></div>
+              <div class="lang-row"><span>🇬🇧 English</span><span>Native/Proficient</span></div>
+              <div class="lang-row"><span>🇩🇪 German</span><span>Proficient</span></div>
+              <div class="lang-row"><span>🇪🇸 Spanish</span><span>Proficient</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Experience ── -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Experience</p>
+      <h2 class="section-title">Career</h2>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Senior Backend Engineer</div>
+          <div class="tl-company">B.E.G. Brück Electronic GmbH</div>
+          <div class="tl-meta">Apr 2025 – Present &nbsp;·&nbsp; Remote, Germany</div>
+          <ul class="tl-bullets">
+            <li>Developing features in Kotlin for LUXONET, evolving the product from MVP to MSP</li>
+            <li>Deploying services on Kubernetes, managing infrastructure with Terraform</li>
+            <li>Setting up LGTM observability stack and maintaining CI/CD pipelines</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Interim Product Delivery Manager</div>
+          <div class="tl-company">B.E.G. Brück Electronic GmbH</div>
+          <div class="tl-meta">Apr 2025 – Dec 2025 &nbsp;·&nbsp; Remote, Germany</div>
+          <ul class="tl-bullets">
+            <li>Led technical delivery as Technical Solution Architect from MVP to scale</li>
+            <li>Owned backlog refinement, discovery workshops, and stakeholder alignment across engineering and business</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Senior Backend Engineer &amp; Team Lead</div>
+          <div class="tl-company">grandcentrix, a Vodafone company</div>
+          <div class="tl-meta">Jun 2020 – Mar 2025 &nbsp;·&nbsp; Köln, Germany</div>
+          <ul class="tl-bullets">
+            <li>Built and led a high-performing engineering team through recruiting, 1:1s, performance reviews, and change management</li>
+            <li>Supported software architecture across all Backend projects; contributed to IoT services on Azure using Kotlin and Spring Boot</li>
+            <li>Maintained common libraries and plugins for authentication, authorisation, and logging</li>
+            <li>Worked with MQTT protocol, WebSockets, Microsoft Azure, and AWS</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Software Developer (Research Assistant)</div>
+          <div class="tl-company">Fraunhofer IIS</div>
+          <div class="tl-meta">Oct 2019 – Apr 2020 &nbsp;·&nbsp; Nürnberg, Germany</div>
+          <ul class="tl-bullets">
+            <li>Improved sensor node localisation accuracy to 1 m precision via coherent transmission in LPWAN systems</li>
+            <li>Data analysis in C/C++ and Python</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Full Stack Software Developer (Research Assistant)</div>
+          <div class="tl-company">RPTU Kaiserslautern</div>
+          <div class="tl-meta">May 2018 – Jan 2020 &nbsp;·&nbsp; Kaiserslautern, Germany</div>
+          <ul class="tl-bullets">
+            <li>Developed an Expert System as part of the GENIAL! research project</li>
+            <li>Java, Spring Boot, Angular, Ontologies, MongoDB</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Software Developer (Research Assistant)</div>
+          <div class="tl-company">Fraunhofer IESE</div>
+          <div class="tl-meta">Mar 2018 – Aug 2018 &nbsp;·&nbsp; Kaiserslautern, Germany</div>
+          <ul class="tl-bullets">
+            <li>Research in Embedded Software Engineering: testing multi-threaded software on multicore platforms in C/C++</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Senior Backend Engineer</div>
+          <div class="tl-company">Lacuna Software</div>
+          <div class="tl-meta">Jun 2017 – Mar 2018 &nbsp;·&nbsp; Brasília, Brazil</div>
+          <ul class="tl-bullets">
+            <li>Developed a timestamp service for digital signatures using Bitcoin's blockchain</li>
+            <li>C# with ASP.NET Core, Entity Framework, Web API, AngularJS</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Full Stack Software Engineer &amp; Scrum Master</div>
+          <div class="tl-company">Haybrooke Associates Limited</div>
+          <div class="tl-meta">Sep 2013 – Mar 2016 &nbsp;·&nbsp; Leicester, United Kingdom</div>
+          <ul class="tl-bullets">
+            <li>Built a complex price comparison tool using ASP.NET stack</li>
+            <li>Introduced Web API and MVVM with Kendo UI to the project</li>
+            <li>Drove Agile culture as Scrum Master for one year</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Full Stack Software Engineer</div>
+          <div class="tl-company">Oak Soluções (acquired by Scytl)</div>
+          <div class="tl-meta">Jan 2012 – Sep 2013 &nbsp;·&nbsp; Brasília, Brazil</div>
+          <ul class="tl-bullets">
+            <li>Led four development projects: estimations, solutions architecture, and team guidance</li>
+            <li>Java, C# ASP.NET MVC, SOAP &amp; RESTful Web Services, PKI</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Firmware Developer (Internship)</div>
+          <div class="tl-company">Autotrac Comércio e Telecomunicações SA</div>
+          <div class="tl-meta">Sep 2009 – Jul 2010 &nbsp;·&nbsp; Brasília, Brazil</div>
+          <ul class="tl-bullets">
+            <li>Developed an algorithm detecting mobile network jamming and triggering satellite alerts</li>
+            <li>C/C++, CAN bus, embedded device protocols, RTOS Linux Denx</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Skills</p>
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h3>Core Languages</h3>
+          <div class="tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Java</span>
+            <span class="tag">C#</span>
+            <span class="tag">Golang</span>
+            <span class="tag">Python</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">C/C++</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Frameworks</h3>
+          <div class="tags">
+            <span class="tag">Spring Boot</span>
+            <span class="tag">ASP.NET Core</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Cloud &amp; Infrastructure</h3>
+          <div class="tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Azure</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">ArgoCD</span>
+            <span class="tag">GitOps</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Databases</h3>
+          <div class="tags">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MS SQL Server</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Redis</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>DevOps &amp; CI/CD</h3>
+          <div class="tags">
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">LGTM Observability</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Methodologies</h3>
+          <div class="tags">
+            <span class="tag">Agile</span>
+            <span class="tag">Scrum</span>
+            <span class="tag">arc42</span>
+            <span class="tag">C4 Model</span>
+            <span class="tag">UML</span>
+            <span class="tag">Requirements Elicitation</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Standards & Protocols</h3>
+          <div class="tags">
+            <span class="tag">HTTP(S)</span>
+            <span class="tag">MQTT</span>
+            <span class="tag">WebSockets</span>
+            <span class="tag">CoAP</span>
+            <span class="tag">LwM2M</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>AI</h3>
+          <div class="tags">
+            <span class="tag">Claude Code</span>
+            <span class="tag">n8n</span>
+            <span class="tag">Model Context Protocol (MCP)</span>
+            <span class="tag">RAG</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects ── -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Projects</p>
+      <h2 class="section-title">Selected Work</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">LUXONET</h3>
+            <span class="project-company">B.E.G. Brück Electronic GmbH</span>
+          </div>
+          <p class="project-desc">Cloud-based building automation platform for lighting control and facility management, enabling location-independent planning, configuration, and commissioning of smart building systems. Contributing Backend features in Kotlin, evolving the product from MVP to mature service.</p>
+          <div class="project-tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">MQTT</span>
+            <span class="tag">DALI-2</span>
+            <span class="tag">IoT</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">Mission Green</h3>
+            <span class="project-company">grandcentrix · Vodafone</span>
+          </div>
+          <p class="project-desc">Gamification app integrated into the Vodafone employee platform, enabling 40,000+ employees to track and reduce their personal CO₂ footprint through daily missions over a 9-week campaign. Delivered as a Backend service on Azure using Kotlin and Spring Boot.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:4px;margin:2px 0">
+            <li style="font-size:0.8125rem;color:var(--text-muted)">✦ <strong style="color:var(--text)">854,000 kg CO₂</strong> saved — equiv. to 221 NYC↔DUS round trips</li>
+            <li style="font-size:0.8125rem;color:var(--text-muted)">✦ <strong style="color:var(--text)">8.9% participation rate</strong> vs. 3–5% industry average</li>
+            <li style="font-size:0.8125rem;color:var(--text-muted)">✦ <strong style="color:var(--text)">+28%</strong> sustained increase in employee app visits</li>
+          </ul>
+          <div class="project-tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Azure</span>
+            <span class="tag">Gamification</span>
+            <span class="tag">IoT</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">PDQ Print Hub</h3>
+            <span class="project-company">Haybrooke Associates</span>
+          </div>
+          <p class="project-desc">SaaS print-buying marketplace connecting businesses with a nationwide UK network of vetted manufacturers. Features real-time pricing quotes, order tracking, carbon-balanced print options, and consolidated billing. Contributed to the core ASP.NET stack and introduced Web API and MVVM patterns.</p>
+          <div class="project-tags">
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET</span>
+            <span class="tag">Web API</span>
+            <span class="tag">Kendo UI</span>
+            <span class="tag">MVVM</span>
+            <span class="tag">Scrum</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">GED-AR</h3>
+            <span class="project-company">Oak Soluções</span>
+          </div>
+          <p class="project-desc">Document management system for Registration Authorities, accelerating digital certificate validation. Led development and handled client requirements directly.</p>
+          <div class="project-tags">
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET MVC</span>
+            <span class="tag">WPF</span>
+            <span class="tag">Web Services</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">GED-AC</h3>
+            <span class="project-company">Oak Soluções</span>
+          </div>
+          <p class="project-desc">Document management system for Certification Authorities, managing Registration Authority accreditation workflows. Built as sole developer.</p>
+          <div class="project-tags">
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET MVC</span>
+            <span class="tag">SQL Server</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">Hoerlle, Américo &amp; Martins</h3>
+            <span class="project-company">Oak Soluções</span>
+          </div>
+          <p class="project-desc">Web application for a law firm to manage clients, documents, legal processes, and appointments. Built and maintained as sole developer.</p>
+          <div class="project-tags">
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET MVC</span>
+            <span class="tag">jQuery</span>
+            <span class="tag">Ajax</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">Lanche Certo</h3>
+            <span class="project-company">Oak Soluções</span>
+          </div>
+          <p class="project-desc">Prepaid card payment platform for private school students, including PagSeguro integration for card issuance, renewal, and top-ups.</p>
+          <div class="project-tags">
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET MVC</span>
+            <span class="tag">jQuery</span>
+            <span class="tag">PagSeguro API</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">ACS</h3>
+            <span class="project-company">Oak Soluções</span>
+          </div>
+          <p class="project-desc">Generic access control service, rebuilt from scratch with a modern stack introducing Web API and MVVM patterns to the team.</p>
+          <div class="project-tags">
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET MVC 4</span>
+            <span class="tag">Web API</span>
+            <span class="tag">KnockoutJS</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">UCC</h3>
+            <span class="project-company">Autotrac</span>
+          </div>
+          <p class="project-desc">Vehicle tracking and monitoring system operating over both cellular and satellite networks, serving fleet operators across Brazil.</p>
+          <div class="project-tags">
+            <span class="tag">C++</span>
+            <span class="tag">CAN bus</span>
+            <span class="tag">Embedded Systems</span>
+            <span class="tag">RTOS</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="minor-title">Minor Contributions</h3>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">BEGA Connect</h3>
+            <span class="project-company">grandcentrix · BEGA</span>
+          </div>
+          <p class="project-desc">IoT smart lighting control platform for BEGA, one of Germany's leading architectural lighting manufacturers. Contributed to Backend services as part of the grandcentrix IoT engineering team.</p>
+          <div class="project-tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Azure</span>
+            <span class="tag">IoT</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">Smart Garage Doors</h3>
+            <span class="project-company">grandcentrix · Hörmann</span>
+          </div>
+          <p class="project-desc">Cloud-connected WLAN gateway enabling remote and voice-controlled operation of Hörmann garage and driveway doors via Alexa, Google Assistant, and Apple Home. Contributed to Backend services as part of the grandcentrix IoT engineering team.</p>
+          <div class="project-tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Azure</span>
+            <span class="tag">MQTT</span>
+            <span class="tag">IoT</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-name">Portal de Assinaturas</h3>
+            <span class="project-company">Lacuna Software · Certisign</span>
+          </div>
+          <p class="project-desc">Brazil's leading digital signature platform by Certisign, processing 1.4M+ document signings monthly for 100,000+ users across the Americas. Worked as maintainer fixing bugs and ensuring platform stability.</p>
+          <div class="project-tags">
+            <span class="tag">C#</span>
+            <span class="tag">ASP.NET</span>
+            <span class="tag">Web API</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Highlights ── -->
+  <section id="highlights">
+    <div class="container">
+      <p class="section-label">Highlights</p>
+      <h2 class="section-title">Key Achievements</h2>
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Reduced Project Startup Time</h3>
+          <p>Introduced shared libraries for authentication, authorisation, and logging, plus reusable plugins — enabling new Backend projects to onboard with minimal friction.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🏗️</div>
+          <h3>Architecture &amp; System Design</h3>
+          <p>Chose a modular monolith approach to simplify product development and long-term maintenance, striking the right balance between scalability and operational simplicity.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <h3>Team Leadership Success</h3>
+          <p>Led full recruitment and onboarding cycles, achieving over 90% employee retention within a high-performing engineering team at a Vodafone company.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🚀</div>
+          <h3>From MVP to MSP</h3>
+          <p>Delivered a product from MVP to mature service by coordinating a Scrum team, managing the technical backlog, and aligning stakeholders on roadmap priorities.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🪪</div>
+          <h3>Open Source First</h3>
+          <p>Replaced OAuth identify solution for an open source one. Compared available options and decided for a self-hosted solution, optimizing costs and decreasing the dependency on external services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <p class="section-label">Contact</p>
+        <h2>Get in touch</h2>
+        <p>Whether you have a project in mind, want to talk engineering, or just want to connect — feel free to reach out.</p>
+        <div class="contact-links">
+          <a href="https://github.com/brunopessanha" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/brunopessanha" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="mailto:brunopessanha@pm.me" class="btn btn-primary">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,12 2,6"/>
+            </svg>
+            brunopessanha[at]pm[dot]me
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Bruno Pessanha &nbsp;·&nbsp; Köln, Germany</p>
+  </footer>
+
+</body>
+</html>
