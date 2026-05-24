@@ -64,6 +64,16 @@
       color: var(--text);
       text-decoration: none;
       letter-spacing: -0.02em;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+
+    nav.scrolled .nav-logo {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
     }
 
     .nav-links {
@@ -81,6 +91,30 @@
     }
 
     .nav-links a:hover { color: var(--accent); }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 30%;
+      object-fit: cover;
+      object-position: center;
+      border: 2px solid var(--border);
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+
+    nav.scrolled .nav-avatar {
+      opacity: 1;
+      transform: scale(1);
+    }
 
     /* ─── Layout helpers ─── */
     .container {
@@ -137,7 +171,20 @@
     .hero {
       padding: 96px 0 80px;
       background: var(--bg);
+      position: relative;
+      overflow: hidden;
     }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('bg.jpeg') center / cover no-repeat;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .hero .container { position: relative; z-index: 1; }
 
     .hero-eyebrow {
       display: flex;
@@ -576,7 +623,10 @@
   <!-- ── Navigation ── -->
   <nav>
     <div class="nav-inner">
-      <a href="#" class="nav-logo">Bruno Pessanha</a>
+      <div class="nav-brand">
+        <img src="Bruno.jpg" alt="" class="nav-avatar" aria-hidden="true">
+        <a href="#" class="nav-logo">Bruno Pessanha</a>
+      </div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -1187,5 +1237,14 @@
     <p>&copy; 2026 Bruno Pessanha &nbsp;·&nbsp; Köln, Germany</p>
   </footer>
 
+  <script>
+    (function () {
+      var nav  = document.querySelector('nav');
+      var hero = document.querySelector('.hero');
+      new IntersectionObserver(function (entries) {
+        nav.classList.toggle('scrolled', !entries[0].isIntersecting);
+      }, { threshold: 0 }).observe(hero);
+    })();
+  </script>
 </body>
 </html>
