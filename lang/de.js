@@ -120,6 +120,14 @@ var I18N_DE = {
   'highlights.mvp.desc': 'Produkt vom MVP bis zum reifen Dienst entwickelt: Koordination eines Scrum-Teams, Verwaltung des technischen Backlogs und Abstimmung der Stakeholder zu Roadmap-Prioritäten.',
   'highlights.oss.title': 'Open Source First',
   'highlights.oss.desc': 'OAuth-Identity-Lösung durch eine Open-Source-Alternative ersetzt. Verfügbare Optionen verglichen und eine selbst gehostete Lösung gewählt, um Kosten zu optimieren und die Abhängigkeit von externen Diensten zu reduzieren.',
+  // Open Source
+  'nav.opensource': 'Open Source',
+  'oss.label': 'Open Source',
+  'oss.title': 'OSS-Beiträge',
+  'oss.commonlibs.desc': 'Gemeinsame Kotlin/Gradle-Bibliotheksinfrastruktur für GrandCentrix-Backend-Projekte. Implementierung von <code>RepositoryWithExclusiveLock</code> für pessimistisches Locking in PostgreSQL, Einrichtung von TestContainers für Integrationstests und Pflege der Gradle-Abhängigkeitsplattform.',
+  'oss.acm.desc': 'Authentifizierungs- und Autorisierungskomponenten-Bibliothek für Spring-Boot-Anwendungen. Einführung des <code>RoleExpander</code>-Dienstes für dynamische Rechteerweiterung, Refactoring der Berechtigungs-/Rollenarchitektur und Verbesserung der OpenID-Connect-Abdeckung.',
+  'oss.hedy.desc': 'Graduierte Open-Source-Programmiersprache für den Einstieg ins Programmieren in 13 Stufen. Vollständige brasilianisch-portugiesische Lokalisierung in zwei gemergten Upstream-PRs – Hedy damit für portugiesischsprachige Lernende weltweit zugänglich gemacht.',
+  'oss.owlrevelio.desc': 'Java-Bibliothek zur Übersetzung eingeschränkter SysML-Blockdiagramme und interner Blockdiagramme in das OWL-Format, mit Abbildung von Blöcken, Attributen, Generalisierungen, Ports und Verbindungen auf ihre OWL-Entsprechungen. Im Maven Central Repository veröffentlicht.',
   // Contact & Footer
   'contact.label': 'Kontakt',
   'contact.title': 'Kontakt aufnehmen',

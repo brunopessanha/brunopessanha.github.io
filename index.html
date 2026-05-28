@@ -39,6 +39,7 @@
           <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
           <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
           <li><a href="#highlights" data-i18n="nav.highlights">Highlights</a></li>
+          <li><a href="#opensource" data-i18n="nav.opensource">Open Source</a></li>
           <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
         <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
@@ -423,7 +424,6 @@
             <span class="tag">Spring Boot</span>
             <span class="tag">Azure</span>
             <span class="tag">Gamification</span>
-            <span class="tag">IoT</span>
           </div>
         </div>
 
@@ -626,6 +626,74 @@
           <h3 data-i18n="highlights.oss.title">Open Source First</h3>
           <p data-i18n="highlights.oss.desc">Replaced OAuth identify solution for an open source one. Compared available options and decided for a self-hosted solution, optimizing costs and decreasing the dependency on external services.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Open Source ── -->
+  <section id="opensource">
+    <div class="container">
+      <p class="section-label" data-i18n="oss.label">Open Source</p>
+      <h2 class="section-title" data-i18n="oss.title">OSS Contributions</h2>
+      <div class="projects-grid">
+
+        <!-- gcx-common-libs -->
+        <div class="project-card">
+          <div class="project-header">
+            <a href="https://github.com/gonecentrix/gcx-common-libs" target="_blank" rel="noopener" class="project-name">gcx-common-libs</a>
+            <span class="project-company">Contributor</span>
+          </div>
+          <p class="project-desc" data-i18n="oss.commonlibs.desc">Shared Kotlin/Gradle library ecosystem for GrandCentrix backend projects. Added <code>RepositoryWithExclusiveLock</code> for pessimistic locking in PostgreSQL, configured TestContainers for integration testing, and maintained the Gradle dependency platform.</p>
+          <div class="project-tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Gradle</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+        </div>
+
+        <!-- gcx-access-control-management -->
+        <div class="project-card">
+          <div class="project-header">
+            <a href="https://github.com/gonecentrix/gcx-access-control-management" target="_blank" rel="noopener" class="project-name">gcx-access-control-management</a>
+            <span class="project-company">Contributor</span>
+          </div>
+          <p class="project-desc" data-i18n="oss.acm.desc">Authentication and authorisation component library for Spring Boot applications. Introduced the <code>RoleExpander</code> service enabling dynamic privilege expansion, refactored the permission/role architecture, and improved OpenID Connect component coverage.</p>
+          <div class="project-tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">OpenID Connect</span>
+          </div>
+        </div>
+
+        <!-- Hedy -->
+        <div class="project-card">
+          <div class="project-header">
+            <a href="https://github.com/hedyorg/hedy" target="_blank" rel="noopener" class="project-name">Hedy</a>
+            <span class="project-company">Contributor</span>
+          </div>
+          <p class="project-desc" data-i18n="oss.hedy.desc">Open-source gradual programming language designed to teach coding through 13 progressive levels. Contributed full Brazilian Portuguese localisation via two merged upstream PRs, making Hedy accessible to Portuguese-speaking learners worldwide.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Localisation</span>
+          </div>
+        </div>
+
+        <!-- OWLRevelio -->
+        <div class="project-card">
+          <div class="project-header">
+            <a href="https://github.com/brunopessanha/OWLRevelio" target="_blank" rel="noopener" class="project-name">OWLRevelio</a>
+            <span class="project-company">Author</span>
+          </div>
+          <p class="project-desc" data-i18n="oss.owlrevelio.desc">Java library that translates restricted SysML Block Diagrams and Internal Block Diagrams into OWL (Web Ontology Language) format, mapping blocks, attributes, generalisation, ports, and connections to their OWL equivalents. Published to Maven Central.</p>
+          <div class="project-tags">
+            <span class="tag">Java</span>
+            <span class="tag">OWL</span>
+            <span class="tag">SysML</span>
+            <span class="tag">Maven Central</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
