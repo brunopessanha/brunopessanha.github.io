@@ -76,6 +76,12 @@
       pointer-events: auto;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     .nav-links {
       display: flex;
       gap: 28px;
@@ -115,6 +121,20 @@
       opacity: 1;
       transform: scale(1);
     }
+
+    .lang-toggle {
+      font-size: 1.25rem;
+      line-height: 1;
+      padding: 3px 6px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      transition: border-color 0.15s, transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    .lang-toggle:hover { border-color: var(--accent); transform: scale(1.1); }
 
     /* ─── Layout helpers ─── */
     .container {
@@ -448,6 +468,12 @@
       border-radius: 9999px;
     }
 
+    .project-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
     .project-desc {
       font-size: 0.875rem;
       color: var(--text-muted);
@@ -627,14 +653,17 @@
         <img src="Bruno.jpg" alt="" class="nav-avatar" aria-hidden="true">
         <a href="#" class="nav-logo">Bruno Pessanha</a>
       </div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#highlights">Highlights</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="#highlights" data-i18n="nav.highlights">Highlights</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">🇬🇧</button>
+      </div>
     </div>
   </nav>
 
@@ -643,9 +672,9 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <p class="hero-eyebrow">Köln, Germany</p>
+          <p class="hero-eyebrow" data-i18n="hero.eyebrow">Köln, Germany</p>
           <h1>Bruno Pessanha</h1>
-          <p class="hero-subtitle">
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
             Senior Backend Engineer &amp; Team Lead building scalable,
             Cloud-Native Systems for IoT and enterprise platforms.
           </p>
@@ -655,10 +684,10 @@
             <span class="pill">Kubernetes</span>
             <span class="pill">Azure</span>
             <span class="pill">AWS</span>
-            <span class="pill">Team Leadership</span>
+            <span class="pill" data-i18n="hero.tag.leadership">Team Leadership</span>
           </div>
           <div class="hero-cta">
-            <a href="#experience" class="btn btn-primary">View Experience</a>
+            <a href="#experience" class="btn btn-primary" data-i18n="hero.cta.experience">View Experience</a>
             <a href="https://github.com/brunopessanha" target="_blank" rel="noopener" class="btn btn-outline">
               <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
@@ -676,7 +705,7 @@
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,12 2,6"/>
               </svg>
-              Email
+              <span data-i18n="hero.cta.email">Email</span>
             </a>
           </div>
         </div>
@@ -690,20 +719,20 @@
   <!-- ── About ── -->
   <section id="about">
     <div class="container">
-      <p class="section-label">About</p>
-      <h2 class="section-title">Who I am</h2>
+      <p class="section-label" data-i18n="about.label">About</p>
+      <h2 class="section-title" data-i18n="about.title">Who I am</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p>
+          <p data-i18n="about.p1">
             Experienced Software Engineer and former Team Lead with comprehensive proficiency in
             Software Development, Software Lifecycle Management, and Cloud Infrastructure.
           </p>
-          <p>
+          <p data-i18n="about.p2">
             I've led high-performing engineering teams and architected scalable, modular Backend
             systems using modern technologies like Kotlin, Spring Boot, Kubernetes, and Terraform —
             always with a focus on customer-centric, efficient solutions and agile practices.
           </p>
-          <p>
+          <p data-i18n="about.p3">
             With roots in Brazil and professional experience across South America, the UK, and Germany,
             I bring a global perspective and a strong track record in cross-functional collaboration,
             from early-stage MVPs to mature cloud-native services.
@@ -711,11 +740,11 @@
         </div>
         <div class="about-sidebar">
           <div class="sidebar-block">
-            <span class="sidebar-label">📍 Location</span>
-            <span class="sidebar-value">Köln, Germany</span>
+            <span class="sidebar-label" data-i18n="about.sidebar.location">📍 Location</span>
+            <span class="sidebar-value" data-i18n="about.sidebar.location.value">Köln, Germany</span>
           </div>
           <div class="sidebar-block">
-            <span class="sidebar-label">👨🏽‍🎓 Education</span>
+            <span class="sidebar-label" data-i18n="about.sidebar.education">👨🏽‍🎓 Education</span>
             <span class="sidebar-value">
               M.Sc. Applied Computer Science
               <small>RPTU Kaiserslautern</small>
@@ -726,18 +755,18 @@
             </span>
           </div>
           <div class="sidebar-block">
-            <span class="sidebar-label">📜 Certifications</span>
+            <span class="sidebar-label" data-i18n="about.sidebar.certs">📜 Certifications</span>
             <span class="sidebar-value" style="font-size:0.875rem;font-weight:400;color:var(--text-muted)">
               PSM I &nbsp;·&nbsp; CAE (Cambridge) &nbsp;·&nbsp; TOEFL iBT 113/120
             </span>
           </div>
           <div class="sidebar-block">
-            <span class="sidebar-label">Languages</span>
+            <span class="sidebar-label" data-i18n="about.sidebar.langs">Languages</span>
             <div>
-              <div class="lang-row"><span>🇧🇷 Portuguese</span><span>Native</span></div>
-              <div class="lang-row"><span>🇬🇧 English</span><span>Native/Proficient</span></div>
-              <div class="lang-row"><span>🇩🇪 German</span><span>Proficient</span></div>
-              <div class="lang-row"><span>🇪🇸 Spanish</span><span>Proficient</span></div>
+              <div class="lang-row"><span>🇧🇷 Portuguese</span><span data-i18n="about.lang.pt">Native</span></div>
+              <div class="lang-row"><span>🇬🇧 English</span><span data-i18n="about.lang.en">Native/Proficient</span></div>
+              <div class="lang-row"><span>🇩🇪 German</span><span data-i18n="about.lang.de">Proficient</span></div>
+              <div class="lang-row"><span>🇪🇸 Spanish</span><span data-i18n="about.lang.es">Proficient</span></div>
             </div>
           </div>
         </div>
@@ -748,120 +777,120 @@
   <!-- ── Experience ── -->
   <section id="experience">
     <div class="container">
-      <p class="section-label">Experience</p>
-      <h2 class="section-title">Career</h2>
+      <p class="section-label" data-i18n="exp.label">Experience</p>
+      <h2 class="section-title" data-i18n="exp.title">Career</h2>
       <div class="timeline">
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Senior Backend Engineer</div>
+          <div class="tl-role" data-i18n="exp.beg1.role">Senior Backend Engineer</div>
           <div class="tl-company">B.E.G. Brück Electronic GmbH</div>
-          <div class="tl-meta">Apr 2025 – Present &nbsp;·&nbsp; Remote, Germany</div>
+          <div class="tl-meta" data-i18n="exp.beg1.meta">Apr 2025 – Present &nbsp;·&nbsp; Remote, Germany</div>
           <ul class="tl-bullets">
-            <li>Developing features in Kotlin for LUXONET, evolving the product from MVP to MSP</li>
-            <li>Deploying services on Kubernetes, managing infrastructure with Terraform</li>
-            <li>Setting up LGTM observability stack and maintaining CI/CD pipelines</li>
+            <li data-i18n="exp.beg1.b1">Developing features in Kotlin for LUXONET, evolving the product from MVP to MSP</li>
+            <li data-i18n="exp.beg1.b2">Deploying services on Kubernetes, managing infrastructure with Terraform</li>
+            <li data-i18n="exp.beg1.b3">Setting up LGTM observability stack and maintaining CI/CD pipelines</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Interim Product Delivery Manager</div>
+          <div class="tl-role" data-i18n="exp.beg2.role">Interim Product Delivery Manager</div>
           <div class="tl-company">B.E.G. Brück Electronic GmbH</div>
-          <div class="tl-meta">Apr 2025 – Dec 2025 &nbsp;·&nbsp; Remote, Germany</div>
+          <div class="tl-meta" data-i18n="exp.beg2.meta">Apr 2025 – Dec 2025 &nbsp;·&nbsp; Remote, Germany</div>
           <ul class="tl-bullets">
-            <li>Led technical delivery as Technical Solution Architect from MVP to scale</li>
-            <li>Owned backlog refinement, discovery workshops, and stakeholder alignment across engineering and business</li>
+            <li data-i18n="exp.beg2.b1">Led technical delivery as Technical Solution Architect from MVP to scale</li>
+            <li data-i18n="exp.beg2.b2">Owned backlog refinement, discovery workshops, and stakeholder alignment across engineering and business</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Senior Backend Engineer &amp; Team Lead</div>
+          <div class="tl-role" data-i18n="exp.gcx.role">Senior Backend Engineer &amp; Team Lead</div>
           <div class="tl-company">grandcentrix, a Vodafone company</div>
-          <div class="tl-meta">Jun 2020 – Mar 2025 &nbsp;·&nbsp; Köln, Germany</div>
+          <div class="tl-meta" data-i18n="exp.gcx.meta">Jun 2020 – Mar 2025 &nbsp;·&nbsp; Köln, Germany</div>
           <ul class="tl-bullets">
-            <li>Built and led a high-performing engineering team through recruiting, 1:1s, performance reviews, and change management</li>
-            <li>Supported software architecture across all Backend projects; contributed to IoT services on Azure using Kotlin and Spring Boot</li>
-            <li>Maintained common libraries and plugins for authentication, authorisation, and logging</li>
-            <li>Worked with MQTT protocol, WebSockets, Microsoft Azure, and AWS</li>
+            <li data-i18n="exp.gcx.b1">Built and led a high-performing engineering team through recruiting, 1:1s, performance reviews, and change management</li>
+            <li data-i18n="exp.gcx.b2">Supported software architecture across all Backend projects; contributed to IoT services on Azure using Kotlin and Spring Boot</li>
+            <li data-i18n="exp.gcx.b3">Maintained common libraries and plugins for authentication, authorisation, and logging</li>
+            <li data-i18n="exp.gcx.b4">Worked with MQTT protocol, WebSockets, Microsoft Azure, and AWS</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Software Developer (Research Assistant)</div>
+          <div class="tl-role" data-i18n="exp.iis.role">Software Developer (Research Assistant)</div>
           <div class="tl-company">Fraunhofer IIS</div>
-          <div class="tl-meta">Oct 2019 – Apr 2020 &nbsp;·&nbsp; Nürnberg, Germany</div>
+          <div class="tl-meta" data-i18n="exp.iis.meta">Oct 2019 – Apr 2020 &nbsp;·&nbsp; Nürnberg, Germany</div>
           <ul class="tl-bullets">
-            <li>Improved sensor node localisation accuracy to 1 m precision via coherent transmission in LPWAN systems</li>
-            <li>Data analysis in C/C++ and Python</li>
+            <li data-i18n="exp.iis.b1">Improved sensor node localisation accuracy to 1 m precision via coherent transmission in LPWAN systems</li>
+            <li data-i18n="exp.iis.b2">Data analysis in C/C++ and Python</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Full Stack Software Developer (Research Assistant)</div>
+          <div class="tl-role" data-i18n="exp.rptu.role">Full Stack Software Developer (Research Assistant)</div>
           <div class="tl-company">RPTU Kaiserslautern</div>
-          <div class="tl-meta">May 2018 – Jan 2020 &nbsp;·&nbsp; Kaiserslautern, Germany</div>
+          <div class="tl-meta" data-i18n="exp.rptu.meta">May 2018 – Jan 2020 &nbsp;·&nbsp; Kaiserslautern, Germany</div>
           <ul class="tl-bullets">
-            <li>Developed an Expert System as part of the GENIAL! research project</li>
-            <li>Java, Spring Boot, Angular, Ontologies, MongoDB</li>
+            <li data-i18n="exp.rptu.b1">Developed an Expert System as part of the GENIAL! research project</li>
+            <li data-i18n="exp.rptu.b2">Java, Spring Boot, Angular, Ontologies, MongoDB</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Software Developer (Research Assistant)</div>
+          <div class="tl-role" data-i18n="exp.iese.role">Software Developer (Research Assistant)</div>
           <div class="tl-company">Fraunhofer IESE</div>
-          <div class="tl-meta">Mar 2018 – Aug 2018 &nbsp;·&nbsp; Kaiserslautern, Germany</div>
+          <div class="tl-meta" data-i18n="exp.iese.meta">Mar 2018 – Aug 2018 &nbsp;·&nbsp; Kaiserslautern, Germany</div>
           <ul class="tl-bullets">
-            <li>Research in Embedded Software Engineering: testing multi-threaded software on multicore platforms in C/C++</li>
+            <li data-i18n="exp.iese.b1">Research in Embedded Software Engineering: testing multi-threaded software on multicore platforms in C/C++</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Senior Backend Engineer</div>
+          <div class="tl-role" data-i18n="exp.lacuna.role">Senior Backend Engineer</div>
           <div class="tl-company">Lacuna Software</div>
-          <div class="tl-meta">Jun 2017 – Mar 2018 &nbsp;·&nbsp; Brasília, Brazil</div>
+          <div class="tl-meta" data-i18n="exp.lacuna.meta">Jun 2017 – Mar 2018 &nbsp;·&nbsp; Brasília, Brazil</div>
           <ul class="tl-bullets">
-            <li>Developed a timestamp service for digital signatures using Bitcoin's blockchain</li>
-            <li>C# with ASP.NET Core, Entity Framework, Web API, AngularJS</li>
+            <li data-i18n="exp.lacuna.b1">Developed a timestamp service for digital signatures using Bitcoin's blockchain</li>
+            <li data-i18n="exp.lacuna.b2">C# with ASP.NET Core, Entity Framework, Web API, AngularJS</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Full Stack Software Engineer &amp; Scrum Master</div>
+          <div class="tl-role" data-i18n="exp.haybrooke.role">Full Stack Software Engineer &amp; Scrum Master</div>
           <div class="tl-company">Haybrooke Associates Limited</div>
-          <div class="tl-meta">Sep 2013 – Mar 2016 &nbsp;·&nbsp; Leicester, United Kingdom</div>
+          <div class="tl-meta" data-i18n="exp.haybrooke.meta">Sep 2013 – Mar 2016 &nbsp;·&nbsp; Leicester, United Kingdom</div>
           <ul class="tl-bullets">
-            <li>Built a complex price comparison tool using ASP.NET stack</li>
-            <li>Introduced Web API and MVVM with Kendo UI to the project</li>
-            <li>Drove Agile culture as Scrum Master for one year</li>
+            <li data-i18n="exp.haybrooke.b1">Built a complex price comparison tool using ASP.NET stack</li>
+            <li data-i18n="exp.haybrooke.b2">Introduced Web API and MVVM with Kendo UI to the project</li>
+            <li data-i18n="exp.haybrooke.b3">Drove Agile culture as Scrum Master for one year</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Full Stack Software Engineer</div>
+          <div class="tl-role" data-i18n="exp.oak.role">Full Stack Software Engineer</div>
           <div class="tl-company">Oak Soluções (acquired by Scytl)</div>
-          <div class="tl-meta">Jan 2012 – Sep 2013 &nbsp;·&nbsp; Brasília, Brazil</div>
+          <div class="tl-meta" data-i18n="exp.oak.meta">Jan 2012 – Sep 2013 &nbsp;·&nbsp; Brasília, Brazil</div>
           <ul class="tl-bullets">
-            <li>Led four development projects: estimations, solutions architecture, and team guidance</li>
-            <li>Java, C# ASP.NET MVC, SOAP &amp; RESTful Web Services, PKI</li>
+            <li data-i18n="exp.oak.b1">Led four development projects: estimations, solutions architecture, and team guidance</li>
+            <li data-i18n="exp.oak.b2">Java, C# ASP.NET MVC, SOAP &amp; RESTful Web Services, PKI</li>
           </ul>
         </div>
 
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-role">Firmware Developer (Internship)</div>
+          <div class="tl-role" data-i18n="exp.autotrac.role">Firmware Developer (Internship)</div>
           <div class="tl-company">Autotrac Comércio e Telecomunicações SA</div>
-          <div class="tl-meta">Sep 2009 – Jul 2010 &nbsp;·&nbsp; Brasília, Brazil</div>
+          <div class="tl-meta" data-i18n="exp.autotrac.meta">Sep 2009 – Jul 2010 &nbsp;·&nbsp; Brasília, Brazil</div>
           <ul class="tl-bullets">
-            <li>Developed an algorithm detecting mobile network jamming and triggering satellite alerts</li>
-            <li>C/C++, CAN bus, embedded device protocols, RTOS Linux Denx</li>
+            <li data-i18n="exp.autotrac.b1">Developed an algorithm detecting mobile network jamming and triggering satellite alerts</li>
+            <li data-i18n="exp.autotrac.b2">C/C++, CAN bus, embedded device protocols, RTOS Linux Denx</li>
           </ul>
         </div>
 
@@ -872,12 +901,12 @@
   <!-- ── Skills ── -->
   <section id="skills">
     <div class="container">
-      <p class="section-label">Skills</p>
-      <h2 class="section-title">Tech Stack</h2>
+      <p class="section-label" data-i18n="skills.label">Skills</p>
+      <h2 class="section-title" data-i18n="skills.title">Tech Stack</h2>
       <div class="skills-grid">
 
         <div class="skill-group">
-          <h3>Core Languages</h3>
+          <h3 data-i18n="skills.core">Core Languages</h3>
           <div class="tags">
             <span class="tag">Kotlin</span>
             <span class="tag">Java</span>
@@ -891,7 +920,7 @@
         </div>
 
         <div class="skill-group">
-          <h3>Frameworks</h3>
+          <h3 data-i18n="skills.frameworks">Frameworks</h3>
           <div class="tags">
             <span class="tag">Spring Boot</span>
             <span class="tag">ASP.NET Core</span>
@@ -899,7 +928,7 @@
         </div>
 
         <div class="skill-group">
-          <h3>Cloud &amp; Infrastructure</h3>
+          <h3 data-i18n="skills.cloud">Cloud &amp; Infrastructure</h3>
           <div class="tags">
             <span class="tag">Linux</span>
             <span class="tag">Azure</span>
@@ -913,7 +942,7 @@
         </div>
 
         <div class="skill-group">
-          <h3>Databases</h3>
+          <h3 data-i18n="skills.databases">Databases</h3>
           <div class="tags">
             <span class="tag">PostgreSQL</span>
             <span class="tag">MS SQL Server</span>
@@ -923,7 +952,7 @@
         </div>
 
         <div class="skill-group">
-          <h3>DevOps &amp; CI/CD</h3>
+          <h3 data-i18n="skills.devops">DevOps &amp; CI/CD</h3>
           <div class="tags">
             <span class="tag">GitHub Actions</span>
             <span class="tag">CI/CD</span>
@@ -932,7 +961,7 @@
         </div>
 
         <div class="skill-group">
-          <h3>Methodologies</h3>
+          <h3 data-i18n="skills.methodologies">Methodologies</h3>
           <div class="tags">
             <span class="tag">Agile</span>
             <span class="tag">Scrum</span>
@@ -944,7 +973,7 @@
         </div>
 
         <div class="skill-group">
-          <h3>Standards & Protocols</h3>
+          <h3 data-i18n="skills.protocols">Standards &amp; Protocols</h3>
           <div class="tags">
             <span class="tag">HTTP(S)</span>
             <span class="tag">MQTT</span>
@@ -955,7 +984,7 @@
         </div>
 
         <div class="skill-group">
-          <h3>AI</h3>
+          <h3 data-i18n="skills.ai">AI</h3>
           <div class="tags">
             <span class="tag">Claude Code</span>
             <span class="tag">n8n</span>
@@ -971,8 +1000,8 @@
   <!-- ── Projects ── -->
   <section id="projects">
     <div class="container">
-      <p class="section-label">Projects</p>
-      <h2 class="section-title">Selected Work</h2>
+      <p class="section-label" data-i18n="projects.label">Projects</p>
+      <h2 class="section-title" data-i18n="projects.title">Selected Work</h2>
       <div class="projects-grid">
 
         <div class="project-card">
@@ -980,7 +1009,8 @@
             <h3 class="project-name">LUXONET</h3>
             <span class="project-company">B.E.G. Brück Electronic GmbH</span>
           </div>
-          <p class="project-desc">Cloud-based building automation platform for lighting control and facility management, enabling location-independent planning, configuration, and commissioning of smart building systems. Contributing Backend features in Kotlin, evolving the product from MVP to mature service.</p>
+          <p class="project-date" data-i18n="projects.luxonet.date">Apr 2025 – Present</p>
+          <p class="project-desc" data-i18n="projects.luxonet.desc">Cloud-based building automation platform for lighting control and facility management, enabling location-independent planning, configuration, and commissioning of smart building systems. Contributing Backend features in Kotlin, evolving the product from MVP to mature service.</p>
           <div class="project-tags">
             <span class="tag">Kotlin</span>
             <span class="tag">Kubernetes</span>
@@ -996,11 +1026,12 @@
             <h3 class="project-name">Mission Green</h3>
             <span class="project-company">grandcentrix · Vodafone</span>
           </div>
-          <p class="project-desc">Gamification app integrated into the Vodafone employee platform, enabling 40,000+ employees to track and reduce their personal CO₂ footprint through daily missions over a 9-week campaign. Delivered as a Backend service on Azure using Kotlin and Spring Boot.</p>
+          <p class="project-date"><!-- TODO: add date range --></p>
+          <p class="project-desc" data-i18n="projects.mgreen.desc">Gamification app integrated into the Vodafone employee platform, enabling 40,000+ employees to track and reduce their personal CO₂ footprint through daily missions over a 9-week campaign. Delivered as a Backend service on Azure using Kotlin and Spring Boot.</p>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:4px;margin:2px 0">
-            <li style="font-size:0.8125rem;color:var(--text-muted)">✦ <strong style="color:var(--text)">854,000 kg CO₂</strong> saved — equiv. to 221 NYC↔DUS round trips</li>
-            <li style="font-size:0.8125rem;color:var(--text-muted)">✦ <strong style="color:var(--text)">8.9% participation rate</strong> vs. 3–5% industry average</li>
-            <li style="font-size:0.8125rem;color:var(--text-muted)">✦ <strong style="color:var(--text)">+28%</strong> sustained increase in employee app visits</li>
+            <li style="font-size:0.8125rem;color:var(--text-muted)" data-i18n="projects.mgreen.stat1">✦ <strong style="color:var(--text)">854,000 kg CO₂</strong> saved — equiv. to 221 NYC↔DUS round trips</li>
+            <li style="font-size:0.8125rem;color:var(--text-muted)" data-i18n="projects.mgreen.stat2">✦ <strong style="color:var(--text)">8.9% participation rate</strong> vs. 3–5% industry average</li>
+            <li style="font-size:0.8125rem;color:var(--text-muted)" data-i18n="projects.mgreen.stat3">✦ <strong style="color:var(--text)">+28%</strong> sustained increase in employee app visits</li>
           </ul>
           <div class="project-tags">
             <span class="tag">Kotlin</span>
@@ -1016,7 +1047,8 @@
             <h3 class="project-name">PDQ Print Hub</h3>
             <span class="project-company">Haybrooke Associates</span>
           </div>
-          <p class="project-desc">SaaS print-buying marketplace connecting businesses with a nationwide UK network of vetted manufacturers. Features real-time pricing quotes, order tracking, carbon-balanced print options, and consolidated billing. Contributed to the core ASP.NET stack and introduced Web API and MVVM patterns.</p>
+          <p class="project-date" data-i18n="projects.pdq.date">Sep 2013 – Mar 2016</p>
+          <p class="project-desc" data-i18n="projects.pdq.desc">SaaS print-buying marketplace connecting businesses with a nationwide UK network of vetted manufacturers. Features real-time pricing quotes, order tracking, carbon-balanced print options, and consolidated billing. Contributed to the core ASP.NET stack and introduced Web API and MVVM patterns.</p>
           <div class="project-tags">
             <span class="tag">C#</span>
             <span class="tag">ASP.NET</span>
@@ -1032,7 +1064,8 @@
             <h3 class="project-name">GED-AR</h3>
             <span class="project-company">Oak Soluções</span>
           </div>
-          <p class="project-desc">Document management system for Registration Authorities, accelerating digital certificate validation. Led development and handled client requirements directly.</p>
+          <p class="project-date"><!-- TODO: add date range --></p>
+          <p class="project-desc" data-i18n="projects.gedar.desc">Document management system for Registration Authorities, accelerating digital certificate validation. Led development and handled client requirements directly.</p>
           <div class="project-tags">
             <span class="tag">C#</span>
             <span class="tag">ASP.NET MVC</span>
@@ -1046,7 +1079,8 @@
             <h3 class="project-name">GED-AC</h3>
             <span class="project-company">Oak Soluções</span>
           </div>
-          <p class="project-desc">Document management system for Certification Authorities, managing Registration Authority accreditation workflows. Built as sole developer.</p>
+          <p class="project-date"><!-- TODO: add date range --></p>
+          <p class="project-desc" data-i18n="projects.gedac.desc">Document management system for Certification Authorities, managing Registration Authority accreditation workflows. Built as sole developer.</p>
           <div class="project-tags">
             <span class="tag">C#</span>
             <span class="tag">ASP.NET MVC</span>
@@ -1059,7 +1093,8 @@
             <h3 class="project-name">Hoerlle, Américo &amp; Martins</h3>
             <span class="project-company">Oak Soluções</span>
           </div>
-          <p class="project-desc">Web application for a law firm to manage clients, documents, legal processes, and appointments. Built and maintained as sole developer.</p>
+          <p class="project-date"><!-- TODO: add date range --></p>
+          <p class="project-desc" data-i18n="projects.hoerlle.desc">Web application for a law firm to manage clients, documents, legal processes, and appointments. Built and maintained as sole developer.</p>
           <div class="project-tags">
             <span class="tag">C#</span>
             <span class="tag">ASP.NET MVC</span>
@@ -1074,7 +1109,8 @@
             <h3 class="project-name">Lanche Certo</h3>
             <span class="project-company">Oak Soluções</span>
           </div>
-          <p class="project-desc">Prepaid card payment platform for private school students, including PagSeguro integration for card issuance, renewal, and top-ups.</p>
+          <p class="project-date"><!-- TODO: add date range --></p>
+          <p class="project-desc" data-i18n="projects.lanche.desc">Prepaid card payment platform for private school students, including PagSeguro integration for card issuance, renewal, and top-ups.</p>
           <div class="project-tags">
             <span class="tag">C#</span>
             <span class="tag">ASP.NET MVC</span>
@@ -1088,7 +1124,8 @@
             <h3 class="project-name">ACS</h3>
             <span class="project-company">Oak Soluções</span>
           </div>
-          <p class="project-desc">Generic access control service, rebuilt from scratch with a modern stack introducing Web API and MVVM patterns to the team.</p>
+          <p class="project-date"><!-- TODO: add date range --></p>
+          <p class="project-desc" data-i18n="projects.acs.desc">Generic access control service, rebuilt from scratch with a modern stack introducing Web API and MVVM patterns to the team.</p>
           <div class="project-tags">
             <span class="tag">C#</span>
             <span class="tag">ASP.NET MVC 4</span>
@@ -1102,7 +1139,8 @@
             <h3 class="project-name">UCC</h3>
             <span class="project-company">Autotrac</span>
           </div>
-          <p class="project-desc">Vehicle tracking and monitoring system operating over both cellular and satellite networks, serving fleet operators across Brazil.</p>
+          <p class="project-date" data-i18n="projects.ucc.date">Sep 2009 – Jul 2010</p>
+          <p class="project-desc" data-i18n="projects.ucc.desc">Vehicle tracking and monitoring system operating over both cellular and satellite networks, serving fleet operators across Brazil.</p>
           <div class="project-tags">
             <span class="tag">C++</span>
             <span class="tag">CAN bus</span>
@@ -1112,7 +1150,7 @@
         </div>
       </div>
 
-      <h3 class="minor-title">Minor Contributions</h3>
+      <h3 class="minor-title" data-i18n="projects.minor">Minor Contributions</h3>
       <div class="projects-grid">
 
         <div class="project-card">
@@ -1120,7 +1158,8 @@
             <h3 class="project-name">BEGA Connect</h3>
             <span class="project-company">grandcentrix · BEGA</span>
           </div>
-          <p class="project-desc">IoT smart lighting control platform for BEGA, one of Germany's leading architectural lighting manufacturers. Contributed to Backend services as part of the grandcentrix IoT engineering team.</p>
+          <p class="project-date"><!-- TODO: add date range --></p>
+          <p class="project-desc" data-i18n="projects.bega.desc">IoT smart lighting control platform for BEGA, one of Germany's leading architectural lighting manufacturers. Contributed to Backend services as part of the grandcentrix IoT engineering team.</p>
           <div class="project-tags">
             <span class="tag">Kotlin</span>
             <span class="tag">Spring Boot</span>
@@ -1134,7 +1173,8 @@
             <h3 class="project-name">Smart Garage Doors</h3>
             <span class="project-company">grandcentrix · Hörmann</span>
           </div>
-          <p class="project-desc">Cloud-connected WLAN gateway enabling remote and voice-controlled operation of Hörmann garage and driveway doors via Alexa, Google Assistant, and Apple Home. Contributed to Backend services as part of the grandcentrix IoT engineering team.</p>
+          <p class="project-date"><!-- TODO: add date range --></p>
+          <p class="project-desc" data-i18n="projects.garage.desc">Cloud-connected WLAN gateway enabling remote and voice-controlled operation of Hörmann garage and driveway doors via Alexa, Google Assistant, and Apple Home. Contributed to Backend services as part of the grandcentrix IoT engineering team.</p>
           <div class="project-tags">
             <span class="tag">Kotlin</span>
             <span class="tag">Spring Boot</span>
@@ -1149,7 +1189,8 @@
             <h3 class="project-name">Portal de Assinaturas</h3>
             <span class="project-company">Lacuna Software · Certisign</span>
           </div>
-          <p class="project-desc">Brazil's leading digital signature platform by Certisign, processing 1.4M+ document signings monthly for 100,000+ users across the Americas. Worked as maintainer fixing bugs and ensuring platform stability.</p>
+          <p class="project-date" data-i18n="projects.portal.date">Jun 2017 – Mar 2018</p>
+          <p class="project-desc" data-i18n="projects.portal.desc">Brazil's leading digital signature platform by Certisign, processing 1.4M+ document signings monthly for 100,000+ users across the Americas. Worked as maintainer fixing bugs and ensuring platform stability.</p>
           <div class="project-tags">
             <span class="tag">C#</span>
             <span class="tag">ASP.NET</span>
@@ -1164,38 +1205,38 @@
   <!-- ── Highlights ── -->
   <section id="highlights">
     <div class="container">
-      <p class="section-label">Highlights</p>
-      <h2 class="section-title">Key Achievements</h2>
+      <p class="section-label" data-i18n="highlights.label">Highlights</p>
+      <h2 class="section-title" data-i18n="highlights.title">Key Achievements</h2>
       <div class="cards-grid">
 
         <div class="card">
           <div class="card-icon">⚡</div>
-          <h3>Reduced Project Startup Time</h3>
-          <p>Introduced shared libraries for authentication, authorisation, and logging, plus reusable plugins — enabling new Backend projects to onboard with minimal friction.</p>
+          <h3 data-i18n="highlights.startup.title">Reduced Project Startup Time</h3>
+          <p data-i18n="highlights.startup.desc">Introduced shared libraries for authentication, authorisation, and logging, plus reusable plugins — enabling new Backend projects to onboard with minimal friction.</p>
         </div>
 
         <div class="card">
           <div class="card-icon">🏗️</div>
-          <h3>Architecture &amp; System Design</h3>
-          <p>Chose a modular monolith approach to simplify product development and long-term maintenance, striking the right balance between scalability and operational simplicity.</p>
+          <h3 data-i18n="highlights.arch.title">Architecture &amp; System Design</h3>
+          <p data-i18n="highlights.arch.desc">Chose a modular monolith approach to simplify product development and long-term maintenance, striking the right balance between scalability and operational simplicity.</p>
         </div>
 
         <div class="card">
           <div class="card-icon">👥</div>
-          <h3>Team Leadership Success</h3>
-          <p>Led full recruitment and onboarding cycles, achieving over 90% employee retention within a high-performing engineering team at a Vodafone company.</p>
+          <h3 data-i18n="highlights.team.title">Team Leadership Success</h3>
+          <p data-i18n="highlights.team.desc">Led full recruitment and onboarding cycles, achieving over 90% employee retention within a high-performing engineering team at a Vodafone company.</p>
         </div>
 
         <div class="card">
           <div class="card-icon">🚀</div>
-          <h3>From MVP to MSP</h3>
-          <p>Delivered a product from MVP to mature service by coordinating a Scrum team, managing the technical backlog, and aligning stakeholders on roadmap priorities.</p>
+          <h3 data-i18n="highlights.mvp.title">From MVP to MSP</h3>
+          <p data-i18n="highlights.mvp.desc">Delivered a product from MVP to mature service by coordinating a Scrum team, managing the technical backlog, and aligning stakeholders on roadmap priorities.</p>
         </div>
 
         <div class="card">
           <div class="card-icon">🪪</div>
-          <h3>Open Source First</h3>
-          <p>Replaced OAuth identify solution for an open source one. Compared available options and decided for a self-hosted solution, optimizing costs and decreasing the dependency on external services.</p>
+          <h3 data-i18n="highlights.oss.title">Open Source First</h3>
+          <p data-i18n="highlights.oss.desc">Replaced OAuth identify solution for an open source one. Compared available options and decided for a self-hosted solution, optimizing costs and decreasing the dependency on external services.</p>
         </div>
       </div>
     </div>
@@ -1205,9 +1246,9 @@
   <section id="contact">
     <div class="container">
       <div class="contact-inner">
-        <p class="section-label">Contact</p>
-        <h2>Get in touch</h2>
-        <p>Whether you have a project in mind, want to talk engineering, or just want to connect — feel free to reach out.</p>
+        <p class="section-label" data-i18n="contact.label">Contact</p>
+        <h2 data-i18n="contact.title">Get in touch</h2>
+        <p data-i18n="contact.text">Whether you have a project in mind, want to talk engineering, or just want to connect — feel free to reach out.</p>
         <div class="contact-links">
           <a href="https://github.com/brunopessanha" target="_blank" rel="noopener" class="btn btn-outline">
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1234,16 +1275,47 @@
   </section>
 
   <footer>
-    <p>&copy; 2026 Bruno Pessanha &nbsp;·&nbsp; Köln, Germany</p>
+    <p data-i18n="footer.text">&copy; 2026 Bruno Pessanha &nbsp;·&nbsp; Köln, Germany</p>
   </footer>
 
+  <script src="lang/en.js"></script>
+  <script src="lang/de.js"></script>
   <script>
     (function () {
+      // ── Scroll nav ──
       var nav  = document.querySelector('nav');
       var hero = document.querySelector('.hero');
       new IntersectionObserver(function (entries) {
         nav.classList.toggle('scrolled', !entries[0].isIntersecting);
       }, { threshold: 0 }).observe(hero);
+
+      // ── i18n ──
+      var TRANSLATIONS = { en: I18N_EN, de: I18N_DE };
+
+
+      function setLang(lang) {
+        document.documentElement.lang = lang;
+        localStorage.setItem('lang', lang);
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.dataset.i18n;
+          if (TRANSLATIONS[lang] && TRANSLATIONS[lang][key] !== undefined) {
+            el.innerHTML = TRANSLATIONS[lang][key];
+          }
+        });
+        var btn = document.getElementById('lang-toggle');
+        if (btn) btn.textContent = lang === 'en' ? '🇬🇧' : '🇩🇪';
+      }
+
+      var saved   = localStorage.getItem('lang');
+      var browser = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      var initial = saved || (browser.startsWith('de') ? 'de' : 'en');
+
+      document.getElementById('lang-toggle').addEventListener('click', function () {
+        var current = localStorage.getItem('lang') || initial;
+        setLang(current === 'en' ? 'de' : 'en');
+      });
+
+      setLang(initial);
     })();
   </script>
 </body>
