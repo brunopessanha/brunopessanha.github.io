@@ -7,6 +7,9 @@
   --accent:       #2563EB;
   --accent-hover: #1D4ED8;
   --accent-light: #EFF6FF;
+  --secondary:       #25eb3f;
+  --secondary-hover: #1dd849;
+  --secondary-light: #effff6;
   --nav-h:        64px;
   --max-w:        960px;
   --radius:       10px;
@@ -457,6 +460,16 @@ nav.scrolled .nav-avatar {
   border-radius: 9999px;
 }
 
+.project-customer {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--secondary);
+  background: var(--secondary-light);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
 .project-date {
   font-size: 0.75rem;
   color: var(--text-muted);
@@ -615,6 +628,9 @@ footer {
     --accent:       #60A5FA;
     --accent-hover: #93C5FD;
     --accent-light: #1E3A5F;
+    --secondary:       #60fa89;
+    --secondary-hover: #93fda8;
+    --secondary-light: #1e5f2b;
   }
 
   nav { background: rgba(15, 23, 42, 0.92); }
