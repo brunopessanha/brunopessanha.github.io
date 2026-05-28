@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Anti-FOUC: apply saved theme before first paint -->
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}());</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Bruno Pessanha – Senior Backend Engineer & Team Lead based in Köln, Germany.">
   <title>Bruno Pessanha – Senior Backend Engineer</title>
@@ -39,6 +41,11 @@
           <li><a href="#highlights" data-i18n="nav.highlights">Highlights</a></li>
           <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
         <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">🇬🇧</button>
       </div>
     </div>
@@ -390,6 +397,7 @@
           <p class="project-desc" data-i18n="projects.luxonet.desc">Cloud-based building automation platform for lighting control and facility management, enabling location-independent planning, configuration, and commissioning of smart building systems. Contributing Backend features in Kotlin, evolving the product from MVP to mature service.</p>
           <div class="project-tags">
             <span class="tag">Kotlin</span>
+            <span class="tag">Spring Boot</span>
             <span class="tag">Kubernetes</span>
             <span class="tag">Terraform</span>
             <span class="tag">MQTT</span>

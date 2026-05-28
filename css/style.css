@@ -18,6 +18,12 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--text);
@@ -127,6 +133,24 @@ nav.scrolled .nav-avatar {
 }
 
 .lang-toggle:hover { border-color: var(--accent); transform: scale(1.1); }
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, transform 0.15s;
+  flex-shrink: 0;
+  padding: 0;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.1); }
+.theme-toggle svg { width: 16px; height: 16px; pointer-events: none; }
 
 /* ─── Layout helpers ─── */
 .container {
@@ -618,8 +642,9 @@ footer {
 }
 
 /* ─── Dark mode ─── */
+/* System preference — skipped if user manually chose light */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg:           #0F172A;
     --bg-alt:       #1E293B;
     --border:       #334155;
@@ -633,8 +658,24 @@ footer {
     --secondary-light: #1e5f2b;
   }
 
-  nav { background: rgba(15, 23, 42, 0.92); }
+  :root:not([data-theme="light"]) nav { background: rgba(15, 23, 42, 0.92); }
 }
+
+/* Manual override — always wins regardless of system preference */
+:root[data-theme="dark"] {
+  --bg:           #0F172A;
+  --bg-alt:       #1E293B;
+  --border:       #334155;
+  --text:         #F1F5F9;
+  --text-muted:   #94A3B8;
+  --accent:       #60A5FA;
+  --accent-hover: #93C5FD;
+  --accent-light: #1E3A5F;
+  --secondary:       #60fa89;
+  --secondary-hover: #93fda8;
+  --secondary-light: #1e5f2b;
+}
+:root[data-theme="dark"] nav { background: rgba(15, 23, 42, 0.92); }
 
 /* ─── Responsive ─── */
 @media (max-width: 700px) {

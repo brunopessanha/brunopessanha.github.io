@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Anti-FOUC: apply saved theme before first paint -->
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}());</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page not found – Bruno Pessanha</title>
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
@@ -44,6 +46,13 @@
       <div class="nav-brand">
         <a href="/" class="nav-logo" style="opacity:1;transform:none;pointer-events:auto;">Bruno Pessanha</a>
       </div>
+      <div class="nav-right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -55,5 +64,7 @@
       <a href="/" class="btn btn-primary">Back to home</a>
     </div>
   </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
