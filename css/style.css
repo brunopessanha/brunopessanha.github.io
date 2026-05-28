@@ -589,9 +589,7 @@ a.project-name:hover { color: var(--accent); }
 }
 
 /* ─── Contact ─── */
-#opensource { padding: 80px 0; background: var(--bg); }
-
-#contact { padding: 80px 0; background: var(--bg-alt); }
+#contact { padding: 80px 0; background: var(--bg); }
 
 .contact-inner {
   text-align: center;
@@ -694,5 +692,5 @@ footer {
   .profile-photo { width: 120px; height: 120px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .section-title { margin-bottom: 32px; }
-  #about, #experience, #skills, #projects, #highlights, #opensource, #contact { padding: 60px 0; }
+  #about, #experience, #skills, #projects, #highlights, #contact { padding: 60px 0; }
 }

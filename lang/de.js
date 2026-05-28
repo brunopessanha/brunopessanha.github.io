@@ -121,8 +121,6 @@ var I18N_DE = {
   'highlights.oss.title': 'Open Source First',
   'highlights.oss.desc': 'OAuth-Identity-Lösung durch eine Open-Source-Alternative ersetzt. Verfügbare Optionen verglichen und eine selbst gehostete Lösung gewählt, um Kosten zu optimieren und die Abhängigkeit von externen Diensten zu reduzieren.',
   // Open Source
-  'nav.opensource': 'Open Source',
-  'oss.label': 'Open Source',
   'oss.title': 'OSS-Beiträge',
   'oss.commonlibs.desc': 'Gemeinsame Kotlin/Gradle-Bibliotheksinfrastruktur für GrandCentrix-Backend-Projekte. Implementierung von <code>RepositoryWithExclusiveLock</code> für pessimistisches Locking in PostgreSQL, Einrichtung von TestContainers für Integrationstests und Pflege der Gradle-Abhängigkeitsplattform.',
   'oss.acm.desc': 'Authentifizierungs- und Autorisierungskomponenten-Bibliothek für Spring-Boot-Anwendungen. Einführung des <code>RoleExpander</code>-Dienstes für dynamische Rechteerweiterung, Refactoring der Berechtigungs-/Rollenarchitektur und Verbesserung der OpenID-Connect-Abdeckung.',

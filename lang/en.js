@@ -121,8 +121,6 @@ var I18N_EN = {
   'highlights.oss.title': 'Open Source First',
   'highlights.oss.desc': 'Replaced OAuth identify solution for an open source one. Compared available options and decided for a self-hosted solution, optimizing costs and decreasing the dependency on external services.',
   // Open Source
-  'nav.opensource': 'Open Source',
-  'oss.label': 'Open Source',
   'oss.title': 'OSS Contributions',
   'oss.commonlibs.desc': 'Shared Kotlin/Gradle library ecosystem for GrandCentrix backend projects. Added <code>RepositoryWithExclusiveLock</code> for pessimistic locking in PostgreSQL, configured TestContainers for integration testing, and maintained the Gradle dependency platform.',
   'oss.acm.desc': 'Authentication and authorisation component library for Spring Boot applications. Introduced the <code>RoleExpander</code> service enabling dynamic privilege expansion, refactored the permission/role architecture, and improved OpenID Connect component coverage.',
